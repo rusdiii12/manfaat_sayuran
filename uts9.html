@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webrusdi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: #F0F4F8;
+        }
+
+        /* Header styling */
+        header {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #FFFFFF;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin: 0.5rem 0;
+        }
+
+        header img {
+            position: absolute;
+            left: 20px;
+            top: 15px;
+            width: 60px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        /* Navigation bar styling */
+        nav {
+            background: #5A10BA;
+            padding: 15px 0;
+            margin-top: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 12px 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.2s;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul li a:hover {
+            background-color: #FFFFFF;
+            color: #2575fc;
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px;
+            gap: 20px;
+        }
+
+        .left-column {
+            width: 300px;
+            padding: 10px;
+            background: #ECEFF1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        .left-column h3 {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .left-column iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .main-content {
+            flex: 2;
+            padding: 20px;
+            background-color: #FFFFFF;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        .main-content h2 {
+            color: #2C3E50;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .main-content img {
+            float: left;
+            width: 50%;
+            height: auto;
+            border-radius: 5px;
+            margin-right: 20px;
+            margin-bottom: 9px;
+        }
+
+        .main-content p {
+            text-align: justify;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 15px;
+            text-indent: 40px;
+        }
+
+        .right-column {
+            width: 200px;
+            padding: 10px;
+            background: #BDC3C7;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        .right-column h3 {
+            margin-bottom: 15px;
+        }
+
+        .right-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .right-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .right-column ul li a {
+            color: #0d09ff;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+
+        .right-column ul li a:hover {
+            color: #6a11cb;
+        }
+
+        /* Responsif untuk layar kecil */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .left-column, .right-column {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="unram.jpg" alt="logo unram">
+        <h1>Sayuran Indonesia Superfood Sehat yang Menghijaukan Budaya dan Lingkungan</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#main-content" onclick="showContent('profil')">Profil</a></li>
+            <li><a href="#main-content" onclick="showContent('home')">Gambaran Umum</a></li>
+            <li><a href="#about" onclick="showContent('about')">Jenis dan Manfaat</a></li>
+            <li><a href="#services" onclick="showContent('services')">Budidaya</a></li>
+            <li><a href="#contact" onclick="showContent('contact')">Pengolahan</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <aside class="left-column">
+            <h3>Video Terkait</h3>
+            <!-- Video pertama -->
+            <iframe src="https://www.youtube.com/embed/blYqGXQIYGI" title="YouTube video player 1" 
+                    width="100%" height="200" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+            </iframe>
+            
+            <!-- Spasi antara video -->
+            <div style="height: 20px;"></div>
+            
+            <!-- Video kedua -->
+            <iframe src="https://www.youtube.com/embed/o5tgZIQ0ufw" title="YouTube video player 2" 
+                    width="100%" height="200" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+            </iframe>
+
+            <!-- Spasi antara video -->
+            <div style="height: 20px;"></div>
+
+            <iframe src="https://www.youtube.com/embed/3kWdRoic9YY" title="YouTube video player 3" 
+                width="100%" height="200" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+
+            <iframe src="https://www.youtube.com/embed/F86zBlg8l_o" title="YouTube video player 4" 
+                width="100%" height="200" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </aside>
+
+        <div class="main-content" id="main-content">
+            <h2 id="profil">TUGAS MATA KULIAH PEMROGRAMAN WEBSITE</h2>
+            <img src="fotoku.jpg" alt="foto profil">
+            <p><h3>NAMA : RUSDIANTO</h3></p>
+            <p><h3>NIM  : E1R022090 </h3></p>
+            <p><h3>KELAS: 5D</h3></p>
+        </div>
+
+        <aside class="right-column">
+            <h3>Informasi Tambahan</h3>
+            <ul>
+                <li><a href="https://id.wikipedia.org/wiki/Sayuran" target="_blank">1. Apa itu Sayuran?</a></li>
+                <li><a href="https://p2ptm.kemkes.go.id/infographic-p2ptm/obesitas/apa-saja-manfaat-sayur-sayuran" target="_blank">2. Manfaat Sayuran bagi Kesehatan</a></li>
+                <li><a href="https://www.fatsecret.co.id/kalori-gizi/search?q=Sayuran" target="_blank">3. Nutrisi Sayuran</a></li>
+                <li><a href="https://www.antarafoto.com/id/view/267961/lindungi-sayuran-lokal" target="_blank">4. Melindungi Sayuran Lokal</a></li>
+                <li><a href="https://cookpad.com/id/cari/sayur" target="_blank">5. Resep masak sayuran.</a></li>
+                <li><a href="https://www.kompas.com/tren/read/2023/09/15/080000765/10-sayuran-yang-bisa-dimakan-mentah-dan-manfaatnya?lgn_method=google&google_btn=onetap" target="_blank">6. Makan Mentah dan Manfaatnya Sayuran.</a></li>
+            </ul>
+        </aside>
+    </div>
+    
+    <!-- Javascript untuk navigasi konten berdasarkan klik tautan -->
+    <script>
+        function showContent(section) {
+            const contentArea = document.getElementById('main-content'); 
+            let content = ''; // Variabel untuk menyimpan konten yang akan ditampilkan
+            
+            // Mengubah konten berdasarkan bagian yang dipilih
+            switch(section) {
+                case 'profil':
+                    content = `
+                        <h2 id="profil">TUGAS MATA KULIAH PEMROGRAMAN WEBSITE</h2>
+                        <img src="fotoku.jpg" alt="foto profil"> <!-- Gambar placeholder -->
+                        <p><h3>NAMA : RUSDIANTO</h3></p>
+                        <p><h3>NIM  : E1R022090 </h3></p>
+                        <p><h3>KELAS: 5D</h3></p>
+                    `;
+                    break;
+                case 'home':
+                    content = `
+                        <h2 id="home">Sayuran Indonesia Kaya Manfaat untuk Kesehatan dan Lingkungan</h2>
+                        <img src="sayuran.jpg" alt="Gambar Sayuran Segar">
+                        <p>Sayuran adalah bagian integral dari pola makan sehat di Indonesia dan kaya akan berbagai nutrisi penting. Beragam jenis sayuran seperti sayuran daun (bayam, sawi, kangkung), sayuran akar (wortel, kentang), dan sayuran buah (tomat, mentimun) tumbuh subur di berbagai daerah. Setiap jenis sayuran memiliki kandungan nutrisi yang berbeda, mulai dari serat, karoten, hingga vitamin A dan C, yang sangat bermanfaat bagi kesehatan tubuh. Para ahli merekomendasikan agar orang dewasa mengonsumsi sekitar 400 gram sayuran setiap hari untuk memenuhi kebutuhan gizi harian, menjadikan sayuran sebagai salah satu superfood yang wajib ada dalam setiap pola makan.</p>
+                        <p>Kandungan serat dalam sayuran berperan penting dalam menjaga kesehatan pencernaan. Serat membantu mencegah sembelit dan meningkatkan kesehatan usus, sehingga proses metabolisme tubuh berjalan dengan baik. Selain itu, sayuran juga mengandung antioksidan yang dapat melindungi tubuh dari kerusakan sel akibat radikal bebas. Nutrisi yang terdapat dalam sayuran berkontribusi besar dalam menurunkan risiko berbagai penyakit kronis, seperti diabetes, hipertensi, dan kanker. Oleh karena itu, menjadikan sayuran sebagai bagian dari rutinitas makan sehari-hari adalah langkah cerdas untuk mendukung kesehatan jangka panjang.</p>
+                        <p>Salah satu keunikan sayuran Indonesia adalah keberagaman cara penyajiannya, yang juga mencerminkan budaya lokal. Di banyak daerah, sayuran sering disajikan dalam bentuk lalapan, yang merupakan sayuran mentah yang dinikmati dengan sambal. Lalapan tidak hanya memberikan rasa yang segar, tetapi juga mempertahankan semua nutrisi yang ada dalam sayuran. Selain itu, sayuran dapat diolah dengan berbagai metode memasak yang sehat, seperti direbus, dikukus, atau dipanggang, sehingga tetap mempertahankan kandungan gizi yang tinggi. Dengan menghargai keberagaman sayuran dan cara penyajiannya, kita dapat lebih menghormati tradisi kuliner yang telah ada sejak lama di masyarakat Indonesia.</p>
+                        <p>Dalam konteks yang lebih luas, konsumsi sayuran tidak hanya berkontribusi pada kesehatan individu, tetapi juga memiliki dampak positif terhadap keberlanjutan lingkungan. Pertanian sayuran yang baik dapat mendukung praktik pertanian berkelanjutan, yang tidak hanya menjaga kesuburan tanah tetapi juga membantu mengurangi jejak karbon. Dengan meningkatkan penggunaan sayuran lokal, kita dapat mengurangi ketergantungan pada sayuran impor yang seringkali membutuhkan transportasi yang jauh. Selain itu, banyak petani di Indonesia yang menerapkan metode pertanian organik, yang ramah lingkungan dan bebas dari pestisida berbahaya. Dengan meningkatnya kesadaran akan pentingnya pola makan sehat dan lingkungan yang bersih, tren konsumsi sayuran lokal di kalangan masyarakat Indonesia semakin meningkat. Melalui pemahaman dan apresiasi terhadap sayuran, kita dapat menjadikan sayuran sebagai superfood yang tidak hanya menyuburkan kesehatan, tetapi juga memperkaya budaya kuliner Indonesia dan mendukung keberlanjutan lingkungan.</p>
+                    `;
+                    break;
+                case 'about':
+                    content = `
+                        <h2>Jenis dan Manfaat Sayuran Untuk Kesehatan Tubuh</h2>
+                        <h4>1. Bayam</h4>
+                        <p>Bayam memiliki warna yang hijau dan kaya akan antioksidan dan juga vitamin K. Mengkonsumsi bayam secara teratur dapat menurunkan risiko tekanan darah tinggi dan menjaga kesehatan jantung.</p>
+                        <h4>2. Wortel</h4>
+                        <p>Sayuran wortel kaya akan kandungan karbohidrat, serat, protein, zat besi, vitamin A, vitamin C, dan juga vitamin K. Manfaat mengkonsumsi wortel bagi kesehatan yaitu dapat menjaga kesehatan mata, mencegah sembelit, dan juga mendukung kinerja organ jantung</p>
+                        <h4>3. Buncis</h4>
+                        <p>Kandungan yang terdapat pada buncis diantaranya yaitu serat, asam folat, vitamin A, vitamin C, dan vitamin K. Buncis juga merupakan sumber lutein dan zeaxanthin yang mampu menurunkan risiko penyakit kanker, jantung, dan mencegah bayi lahir cacat.</p>
+                        <h4>4. Kangkung</h4>
+                        <p>Kangkung memiliki warna yang hijau seperti bayam. Sayuran kangkung kaya akan kandungan vitamin A, vitamin C, dan vitamin B kompleks yang tinggi. Mengkonsumsi kangkung dapat meningkatkan hormon yang berdampak pada ketenangan hati dan juga pikiran. Selain itu, kangkung juga banyak mengandung kalium dan fosfor yang bermanfaat untuk menurunkan kolesterol dan mengobati anemia.</p>
+                        <h4>5. Sawi</h4>
+                        <p>Sawi adalah salah satu sayuran hijau sama seperti bayam dan kangkung. Sayuran ini memiliki kandungan kalium, serat, karbohidrat, vitamin K, zinc, magnesium dan kalsium yang tinggi. sayuran sawi bermanfaat bagi kesehatan tubuh diantaranya untuk membantu meningkatkan imun tubuh dan merawat kesehatan jantung.</p>
+                        <h4>6. Asparagus</h4>
+                        <p>Asparagus mempunyai kandungan nutrisi yang istimewa dengan kalori yang sangat rendah. kandungan nutrisi yang terdapat pada asparagus diantaranya yaitu protein, serat, lemak, folat, kalium, fosfor, vitamin C, vitamin A, vitamin E, zat besi, zinc, dan riboflavin. Tidak hanya itu, asparagus juga kaya akan kandungan vitamin K yang berperan aktif dalam pembentukan darah sekaligus merawat kesehatan tulang. Kandungan folat yang tinggi yang ada pada asparagus sangat baik dikonsumsi oleh ibu hamil untuk membantu pembentukan sel-sel dan DNA calon bayi.</p>
+                        <h4>7. Brokoli</h4>
+                        <p>Brokoli memiliki banyak kandungan serat, vitamin, mineral, dan antioksidan seperti sulforaphane dan lutein yang bermanfaat untuk menurunkan risiko penyakit kanker. Selain untuk menurunkan risiko penyakit jantung, sayuran brokoli juga bermanfaat untuk menjaga kesehatan jantung, membantu sistem pencernaan, dan mempercantik kulit.</p>
+                        <h4>8. Daun singkong</h4>
+                        <p>Terdapat banyak kandungan protein dan juga zat besi pada daun singkong. Selain itu, daun singkong juga kaya akan kandungan vitamin A dan vitamin C. Daun singkong memiliki kandungan protein 4x lipat lebih banyak dibanding bayam. Selain itu, kandungan vitamin A yang ada pada daun singkong juga 2x lipat lebih banyak dibandingkan bayam.</p>
+                        <h4>9. Selada</h4>
+                        <p>Selada air kaya akan kandungan vitamin K yang mencapai 100% kebutuhan harian. Selain vitamin K, selada air juga memiliki kandungan lain seperti vitamin C, vitamin A, kalsium, mangan, dan serat. Selada air memiliki banyak manfaat bagi kesehatan seperti misalnya menunda penuaan dini, menguatkan tulang, meningkatkan kesuburan, menjaga kestabilan darah, menyehatkan jantung, menguatkan gigi, mencegah kanker, membantu sembelit, dan membantu meningkatkan kesehatan hati.</p>
+                        <h4>10. Seledri</h4>
+                        <p>Seledri memiliki kandungan mineral seperti kalsium, zat besi, dan kalium. Selain itu, seledri juga kaya akan kandungan vitamin A dan vitamin C. Rutin mengkonsumsi seledri memiliki banyak manfaat bagi kesehatan tubuh seperti menurunkan tekanan darah, penghenti saat terjadi pendarahan, anti kejang, dan mampu menghambat pembentukan sel tumor.</p>
+                        <h4>11. Daun katuk</h4>
+                        <p>Daun katuk mempunyai cita rasa yang manis serta kaya akan kandungan kalsium yang bermanfaat mengurangi tekanan darah tinggi. Selain itu, ada beberapa kandungan lainnya yang juga bermanfaat dalam menurunkan kadar kolesterol sehingga bisa mencegah berbagai macam penyakit serius seperti misalnya jantung.</p>
+                        <h4>12. Kubis</h4>
+                        <p>Kubis adalah salah satu jenis sayuran hijau yang rendah kalori namun kaya akan kandungan vitamin, mineral, dan juga antioksidan. Rutin mengkonsumsi kubis bermanfaat bagi kesehatan tubuh diantaranya yaitu meningkatkan kesehatan jantung, membantu mengobati peradangan dan kanker.</p>
+                        <h4>13. Pare</h4>
+                        <p>Para memiliki ciri khas yaitu rasanya yang pahit meskipun sudah diolah. Namun, rasa pahit yang dimiliki pare ternyata kaya akan kandungan serat. Selain itu, pare juga memiliki kandungan lainnya seperti kalsium, kalium, zat besi, vitamin C, dan vitamin A. Manfaat yang dapat dirasakan jika mengkonsumsi pare secara rutin yaitu dapat membantu menurunkan kadar gula dalam darah, menurunkan kolesterol, dan juga menurunkan tekanan darah.</p>
+                        <h4>14. Bawang bombay</h4>
+                        <p>Bawang bombay memiliki kandungan sulfur yang bisa mencegah pembekuan darah. Ada juga kandungan quecetin, antioksidan yang dapat mencegah inflamasi atau alergi.</p>
+                        <h4>15. Paprika</h4>
+                        <p>Paprika kaya akan kandungan vitamin B6 yang bermanfaat untuk mencegah kerontokan pada rambut. Selain itu, paprika juga memiliki sifat alami antibakterial sehingga dapat menghambat pertumbuhan bakteri tertentu seperti E. coli. Paprika juga mengandung banyak vitamin C yang bermanfaat untuk meningkatkan imun.</p>
+                        <h4>16. Kale</h4>
+                        <p>Kale mengandung nutrisi lengkap seperti vitamin A, vitamin C, vitamin K, kalsium, kalium, dan folat. Rajin mengkonsumsi kale bermanfaat untuk menurunkan kolesterol dan mengurangi risiko penyakit jantung.</p>
+                        <h4>17. Kecipir</h4>
+                        <p>Kecipir memiliki cita rasa yang khas, selain itu kecipir juga kaya akan manfaat seperti mencegah penyakit kanker. Terdapat beberapa kandungan yang ada pada kecipir yang mampu menghambat pertumbuhan sel-sel kanker seperti asam pantotenat, riboflavin, dan vitamin B6.</p>
+                    `;
+                    break;
+                case 'services':
+                     content = `
+                        <h2>Cara Budidaya Tanaman Sayuran Lengkap dengan Tipsnya agar Panen Banyak</h2>
+                        <p>Membudidayakan tanaman sayur merupakan salah satu cara yang dapat dilakukan untuk memperoleh sayuran yang berkualitas dari lahan sendiri. Untuk dapat membudidayakan tanaman sayur terdapat beberapa hal yang perlu diperhatikan dalam penanamannya. Dikutip dari buku Bisnis Tanaman Sayur paling Menguntungkan di Pasaran yang disusun oleh Devi Murti Prakastiwi (2021: 29), agar budidaya tanaman sayur menghasilkan panen yang melimpah, hal yang perlu dipersiapkan adalah mengetahui sarana yang dapat dilakukan untuk menanam tanaman sayuran. </p>
+                        <p>Untuk itu, penting untuk memperhatikan cara budidaya sayuran yang tepat. Berikut ini adalah cara budidaya tanaman sayuran yang dapat diikuti.</p>
+                        <h4>1. Memilih benih yang berkualitas</h4>
+                        <p>Mengutip buku Teknologi Produksi Tanaman Sayuran yang disusun oleh Erina Riak Asie, M. Hidayat, Miskadi, Muhamad Suhardi, Randi Pratama Murtikusuma (2023: 63), kualitas benih sangat mempengaruhi pertumbuhan dan produktivitas tanaman sayuran. Saat memilih benih yang akan ditanam, pastikan benih yang akan digunakan berkualitas, sehat, bersih dari gulma, dan tidak terinfeksi oleh jamur dan hama.</p>
+                        <h4>2. Melakukan pembibitan</h4>
+                        <p>Setelah benih dipilih, lakukan pembibitan. Perlakuan benih untuk pembibitan dapat dilakukan dengan cara merendam benih dengan air. Tak hanya itu, pembibitan juga dapat dilakukan langsung dengan menyemaikan benih di lahan. Setelah benih menghasilkan bibit, pindahkan bibit ke tempat yang lebih besar.</p>
+                        <h4>3. Mempersiapkan media tanam</h4>
+                        <p>Media tanam yang bagus akan mendukung pertumbuhan sayuran. Agar tanah siap untuk ditanam, lakukan pengolahan tanah terlebih dahulu. Cara pengolahan tanah dapat dilakukan dengan menggemburkan menggunakan cangkul atau garpu tanah. Tujuannya agar tanah lebih gembur dan mudah ditanami.</p>
+                        <h4>4. Menanam bibit ke media tanam</h4>
+                        <p>Saat menanam tanaman sayuran, perhatikan jarak antar tanaman agar tanaman dapat tumbuh dengan subur. Jika ruang tumbuh tersedia dengan baik, tanaman sayuran akan menghasilkan panen yang berkualitas dengan jumlah yang banyak.</p>
+                        <h4>5. Penyiraman dan penyiangan hama tanaman</h4>
+                        <p>Supaya tanaman dapat tumbuh subur, lakukan penyiraman tanaman secara berkala. Jangan lupa lakukan penyiangan hama untuk mencegah terjadinya tanaman gagal panen atau bahkan rusak saat ditanam.</p>
+                        <p>Demikian cara budidaya tanaman sayuran yang dapat diterapkan agar tanaman tumbuh subur dan menghasilkan panen yang berkualitas. </p>
+                    `;
+                    break;
+                case 'contact':
+                content = `
+                        <h2>Cara Mengolah Sayuran agar Gizinya Tidak Mudah Hilang</h2>
+                        <p>Mengolah sayuran tidak bisa dilakukan asal-asalan. Sebab, proses yang dilakukan secara tidak tepat dapat menurunkan kandungan gizi yang ada di dalamnya.  Proses pemanasan terlalu lama, misalnya. Cara ini bisa menurunkan kadar vitamin dan mineral dalam sayuran sebanyak 15 hingga 20 persen. Ini terjadi pada sayuran yang mengandung kalium, folat dan vitamin B serta C. Memanggang jadi salah satu cara yang mengolah makanan agar kandungan gizinya tidak mudah hilang. Cara lainnya, antara lain mengukus, merebus, menumis dan menggunakan microwave.</p>
+                        <p><h3>A. Cara Tepat Mengolah Sayuran</h3></p>
+                        <h4>1. Memanggang</h4>
+                        <p>Mengolah sayuran dengan cara memanggang bisa mempertahankan bentuk, warna dan rasa sayuran. Metode ini cocok untuk sayuran bertekstur padat, seperti buncis, bawang bombay, wortel, asparagus dan labu.</p>
+                        <h4>2. Merebus</h4>
+                        <p>Metode ini tergolong mudah, cepat dan cocok untuk berbagai jenis sayuran. Mulai dari umbi-umbian hingga dedaunan. Kekurangannya adalah dapat merusak kandungan vitamin dalam sayuran. Kondisi tersebut terjadi ketika merebus air dalam suhu tinggi dan waktu yang lama. Adapun waktu yang tepat untuk metode memasak ini, yakni: Sayuran kurang padat. Contohnya, brokoli, kembang kol dan kacang panjang. Membutuhkan waktu 8 hingga 10 menit. Sayuran padat. Contohnya, ubi, labu dan wortel. Membutuhkan waktu 12 hingga 15 menit. Sayuran mengandung zat tepung. Contohnya, kentang. Membutuhkan waktu 18 hingga 20 menit. </p>
+                        <h4>3. Mengukus</h4>
+                        <p>Metode ini menjadi cara paling tepat untuk memasak sayuran dengan kandungan vitamin larut air. Contohnya, kalium, folat dan vitamin B serta C. Sebab, mengukus tidak akan menghilangkan banyak nutrisi tersebut. Mengukus juga menghasilkan panas yang sedang, sehingga tidak menyebabkan gosong. Sayuran juga tidak kehilangan banyak cairan. Metode ini cocok untuk mengolah kembang kol, wortel, brokoli dan sayuran berdaun hijau.</p>
+                        <h4>4. Menumis</h4>
+                        <p>Untuk memasak sayur, perhatikan waktu pengolahannya. Sebab, sayuran lebih cepat layu, sehingga berisiko kehilangan kandungan baik di dalamnya. Karena itu, tumis sebentar saja untuk mempertahankan gizi dan teksturnya.</p>
+                        <p><h3>B. Metode Pelengkap</h3></p>
+                        <h4>1. Mencuci Sayuran dengan Air Mengalir</h4>
+                        <p>Sebelum memasaknya, cuci sayuran terlebih dulu dengan air mengalir guna menghilangkan bakteri, kuman atau pestisida yang menempel. Jangan pernah merendamnya, karena akan menghilangkan kandungan nutrisi di dalamnya.</p>
+                        <h4>2. Potong dalam Ukuran Besar</h4>
+                        <p>Cara ini dilakukan untuk sayuran yang mengandung vitamin C, seperti paprika, brokoli, kembang kol, kale, kangkung dan bayam. Tujuannya untuk mencegah sayur kehilangan banyak nutrisi selama proses memasak berlangsung. Jika ingin memotong dalam ukuran kecil, lakukan setelah matang. </p>
+                        <h4>3. Perhatikan Waktu, Suhu dan Air</h4>
+                        <p>Jangan lupa memperhatikan suhu dan waktu serta jumlah air yang digunakan saat memasak. Waktu memasak yang lama, suhu tinggi dan air terlalu banyak bisa membuat nutrisi penting dalam sayuran hilang.</p>
+                        <p>Penerapan beberapa langkah di atas bisa mencegah sayuran kehilangan nutrisi terlalu banyak. Untuk lebih jelasnya terkait dengan metode memasak agar kandungan gizinya tidak hilang, silakan tanya dokter.</p>
+                    `;
+                    break;
+                default:
+                    content = '<h2>Selamat Datang!</h2>';
+            }
+
+            contentArea.innerHTML = content; // Memperbarui konten di area konten utama
+        }
+    </script>
+</body>
+</html>
